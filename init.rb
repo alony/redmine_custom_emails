@@ -12,11 +12,7 @@ Redmine::Plugin.register :redmine_custom_emails do
   url 'https://github.com/alony/redmine_custom_emails'
   author_url 'https://github.com/alony'
   
-  Redmine::Template.init do |config|
-  
-    # define a Hash of action-view pairs to set correspondance
-    # between actions and view names, if they don't match
-    config.additional_view_aliases = {:issue_added => :issue_add}
+  Redmine::CustomEmails::Template.init do |config|
 
     # locales, for which separate email text should be served
     config.additional_locales = :de
