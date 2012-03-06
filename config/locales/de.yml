@@ -1,0 +1,8 @@
+de:
+  label_emails_text: "E-Mails"
+  label_email_templates: "E-Mail-Vorlagen"
+  label_email_name: "Aktion"
+  label_email_text: "Text"
+  label_email_subject: "Betreff"
+  
+  reset_default: "Wiederherstellen von Standard-Text"

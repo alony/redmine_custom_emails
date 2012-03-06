@@ -1,0 +1,33 @@
+<h2><%=l(:label_email_templates)%></h2>
+
+<table class="list">
+  <thead>
+    <tr>
+      <th><%= l(:label_email_name) %></th>
+      <th><%= l(:label_email_text) %></th>
+      <th><%= l(:label_email_subject) %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  
+  <% for email in @emails %>
+    <tr class="<%= cycle("odd", "even") %>">
+      <td><%= link_to h(email.action.humanize), edit_custom_email_path(email) %></td>
+      <td><%= h(email.short_text) %></td>
+      <td><%= h(email.subject) %></td>
+      <td class="buttons">
+        <%= link_to(l(:reset_default), custom_email_path(email),
+                                   :method => :delete,
+                                   :confirm => l(:text_are_you_sure),
+                                   :class => 'icon icon-del') %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p class="pagination"><%= pagination_links_full @email_pages %></p>
+
+<% html_title(l(:label_email_templates)) -%>

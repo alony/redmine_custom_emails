@@ -1,0 +1,8 @@
+en:
+  label_emails_text: "Emails"
+  label_email_templates: "Email templates"
+  label_email_name: "Action"
+  label_email_text: "Text"
+  label_email_subject: "Subject"
+  
+  reset_default: "Restore default text"
