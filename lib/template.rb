@@ -29,7 +29,6 @@ module Redmine::CustomEmails
         end
         
         I18n.locale = I18n.default_locale
-        puts Parser.new(all_actions["account_information"]).render
       end
     end
 

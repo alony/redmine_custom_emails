@@ -28,14 +28,9 @@ module Redmine
         # put partials instead of +render+ lines
         @data.gsub!(/<%(=\s*render[^\"]*"([^\.]*).*(\{.*\})[^%]*)%>/) do |str|
            partial_name =  "_" + $2
-           puts "partial_name: #{partial_name}"
-           
            partial_text = EmailTemplate.find_by_action(partial_name).try(:html)
-           puts "partial_text: #{partial_text}"
-
            locals = eval $3.gsub(/(@[^#{delimiters}]*)/, '"\1"') rescue {}
-           puts "locals: #{locals.inspect}"
-           
+
            raise LoadError unless partial_name
            locals.each_pair do |local, global|
              4.times {partial_text.gsub!(/(\^%[^%]*[=\(\{\}\),\s])#{local}([\=\(\{\}\),\s\.])/, '\1' << global << '\2')}
@@ -52,7 +47,6 @@ module Redmine
       
       def render
         escape_erb!
-        puts @data.inspect
         ERB.new(@data).result(binding)
       end
       
