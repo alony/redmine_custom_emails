@@ -1,0 +1,21 @@
+<h2><%= link_to l(:label_email_templates), custom_emails_path %> &#187; <%=h @email.action.humanize %></h2>
+
+<% form_for @email, :url => custom_email_path(@email) do |f| %>
+  <%= error_messages_for 'email' %>
+  <div class="box" id="custom_email_edit">
+    <p>
+      <%= f.label :subject %>
+      <%= f.text_field :subject %>
+    </p>
+    
+    <p>
+      <%= f.label "Email text" %>
+        <div class="email">
+          <div onClick="this.contentEditable='true';"><%= f.object.code_escaped %></div>
+        </div>
+    </p>
+    
+    <%= f.text_area :html, :size => "20x10", :class => "invisible" %>
+    <%= submit_tag l(:button_save) %>
+  </div>
+<% end %>

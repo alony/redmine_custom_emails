@@ -1,3 +1,33 @@
 #admin-menu a.custom-emails {
   background-image: url(../images/email.png);
 }
+
+.invisible {
+  display: none;
+}
+
+div.email {
+  border: 1px solid grey;
+  background: #eee;
+  padding: 20px;
+}
+
+span.escape {
+  border: 1px solid #777;
+  padding: .25em;
+  margin: 2px;
+  display: inline-block;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  cursor: default;
+}
+span.escape * { cursor: default; }
+span.escape.code {
+  background: #E4DFEC;
+}
+
+span.escape.vars {
+  background: #DAEEF3;
+}

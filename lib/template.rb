@@ -20,9 +20,8 @@ module Redmine::CustomEmails
             all_actions.each_pair do |action, path|
               next unless action =~ exp
 
-              puts action.inspect
               unless @templates.include? "#{loc}.#{action}"
-                EmailTemplate.create(:action => action, :locale => loc.to_s, :html => Parser.new(path).render)
+                EmailTemplate.create(:action => action, :locale => loc.to_s, :html => Parser.new(path, loc).render)
               end
             end
           end
