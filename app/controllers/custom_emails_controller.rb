@@ -3,6 +3,6 @@ class CustomEmailsController < ApplicationController
   unloadable
   
   def index
-    @email_pages, @emails = paginate :email_templates, :per_page => 10, :order => 'action'
+    @email_pages, @emails = paginate EmailTemplate.sterling, :per_page => 10, :order => 'action'
   end
 end

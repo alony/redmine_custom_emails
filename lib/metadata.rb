@@ -1,8 +1,10 @@
+require 'active_support'
+
 module Redmine::CustomEmails
   module MetaData
     def all_actions
       @all ||= Mailer.view_paths.map{|path| path.to_s << "/mailer"}.inject({}) do |r, path|
-        Dir["#{path}/**/*.html.*"].reject{|name| name[/^_/]}.each do |p|
+        Dir["#{path}/**/*.html.*"].each do |p|
           p[/\/([^\/]*)\.html/]
           r[$1] = p
         end
